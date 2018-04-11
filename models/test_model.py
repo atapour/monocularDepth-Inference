@@ -35,10 +35,15 @@ class TestModel(BaseModel):
         print('-----------------------------------------------')
 
     def set_input(self, input):
+        self.image_sizes = input['A_sizes']
+
         # we need to use single_dataset mode
         input_A = input['A']
         self.input_A.resize_(input_A.size()).copy_(input_A)
         self.image_paths = input['A_paths']
+
+        self.size = (int(self.image_sizes[0]), int(self.image_sizes[1]))
+
 
     def test(self):
         self.real_A = Variable(self.input_A)
@@ -49,6 +54,9 @@ class TestModel(BaseModel):
     # get image paths
     def get_image_paths(self):
         return self.image_paths
+
+    def get_image_sizes(self):
+        return self.size
 
     def get_current_visuals(self):
         real_A = util.tensor2im(self.real_A.data)

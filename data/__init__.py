@@ -13,7 +13,7 @@ def CreateDataset(args):
     dataset = None
     from data.single_dataset import SingleDataset
     dataset = SingleDataset()
-    print("dataset [%s] was created" % (dataset.name()))
+    print("The dataset was created")
     dataset.initialize(args)
     return dataset
 
@@ -27,9 +27,9 @@ class CustomDatasetDataLoader(BaseDataLoader):
         self.dataset = CreateDataset(args)
         self.dataloader = torch.utils.data.DataLoader(
             self.dataset,
-            batch_size=args.batchSize,
-            shuffle=not args.serial_batches,
-            num_workers=int(args.nThreads))
+            batch_size=1,
+            shuffle=False,
+            num_workers=1)
 
     def load_data(self):
         return self

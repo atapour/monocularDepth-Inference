@@ -124,7 +124,7 @@ class Visualizer():
             log_file.write('%s\n' % message)
 
     # save image to the disk
-    def save_images(self, webpage, visuals, image_path, aspect_ratio=1.0):
+    def save_images(self, webpage, visuals, image_path, size=None):
         image_dir = webpage.get_image_dir()
         short_path = ntpath.basename(image_path[0])
         name = os.path.splitext(short_path)[0]
@@ -134,14 +134,15 @@ class Visualizer():
         txts = []
         links = []
 
+        #print(size)
+
         for label, im in visuals.items():
             image_name = '%s_%s.png' % (name, label)
             save_path = os.path.join(image_dir, image_name)
             h, w, _ = im.shape
-            if aspect_ratio > 1.0:
-                im = imresize(im, (h, int(w * aspect_ratio)), interp='bicubic')
-            if aspect_ratio < 1.0:
-                im = imresize(im, (int(h / aspect_ratio), w), interp='bicubic')
+            if size!=None:
+                im = imresize(im, (size[1], size[0]), interp='bicubic')
+
             util.save_image(im, save_path)
 
             ims.append(image_name)

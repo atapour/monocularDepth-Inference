@@ -18,7 +18,7 @@ def get_transform(opt):
     transform_list = []
 
     transform_list.append(transforms.Lambda(
-    lambda img: __scale_to_256(img)))
+    lambda img: __scale_to_256_factor(img)))
 
     transform_list += [transforms.ToTensor(),
                        transforms.Normalize((0.5, 0.5, 0.5),
@@ -26,5 +26,5 @@ def get_transform(opt):
     return transforms.Compose(transform_list)
 
 
-def __scale_to_256(img):
-    return img.resize((256, 256), Image.BICUBIC)
+def __scale_to_256_factor(img):
+    return img.resize((1024, 256), Image.BICUBIC)
