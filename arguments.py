@@ -10,7 +10,7 @@ class Arguments():
         self.initialized = False
 
     def initialize(self):
-        self.parser.add_argument('--dataroot', default="/home/amir/Data/depth-style-A2B", help='path to images (for the purpose of inference, it should have the subfolder testA)')
+        self.parser.add_argument('--dataroot', default="/home/amir/Projects/styleDepth-Inference/eigen", help='path to the directory containing the images')
         self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='the directory that contains the checkpoints')
         self.parser.add_argument('--display_winsize', type=int, default=256, help='display window size')
@@ -21,7 +21,6 @@ class Arguments():
         self.parser.add_argument('--init_type', type=str, default='normal', help='network initialization [normal|xavier|kaiming|orthogonal]')        
         self.parser.add_argument('--ntest', type=int, default=float("inf"), help='# of test examples.')
         self.parser.add_argument('--results_dir', type=str, default='./results/', help='saves results here.')
-        self.parser.add_argument('--aspect_ratio', type=float, default=1.0, help='aspect ratio of result images')
         self.parser.add_argument('--how_many', type=int, default=5000, help='how many test images to run')
         self.initialized = True
 
