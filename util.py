@@ -3,6 +3,8 @@ import torch
 import numpy as np
 from PIL import Image
 import os
+from scipy.misc import imresize
+import ntpath
 
 
 # Converts a Tensor into a Numpy array
@@ -54,3 +56,28 @@ def mkdirs(paths):
 def mkdir(path):
     if not os.path.exists(path):
         os.makedirs(path)
+
+def save_images(results_dir, visuals, image_path, size=None):
+    image_dir = results_dir
+    if not os.path.exists(image_dir):
+        os.makedirs(image_dir)
+
+    short_path = ntpath.basename(image_path[0])
+    name = os.path.splitext(short_path)[0]
+
+    ims = []
+    txts = []
+    links = []
+
+    for label, im in visuals.items():
+        image_name = '%s_%s.png' % (name, label)
+        save_path = os.path.join(image_dir, image_name)
+        h, w, _ = im.shape
+        if size!=None:
+            im = imresize(im, (size[1], size[0]), interp='bicubic')
+
+        save_image(im, save_path)
+
+        ims.append(image_name)
+        txts.append(label)
+        links.append(image_name)
