@@ -3,18 +3,24 @@ import torch
 import numpy as np
 from PIL import Image
 import os
-from scipy.misc import imresize
+# from scipy.misc import imresize
 import ntpath
-
+import cv2
 
 # Converts a Tensor into a Numpy array
 # |imtype|: the desired type of the converted numpy array
-def tensor2im(image_tensor, imtype=np.uint8):
+def tensor2im(image_tensor):
     image_numpy = image_tensor[0].cpu().float().numpy()
-    if image_numpy.shape[0] == 1:
-        image_numpy = np.tile(image_numpy, (3, 1, 1))
-    image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
-    return image_numpy.astype(imtype)
+    if image_numpy.shape[0] == 3:
+        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 255.0
+        return image_numpy.astype(np.uint8)
+
+    elif image_numpy.shape[0] == 1:
+        print(image_numpy.shape)
+        image_numpy = (np.transpose(image_numpy, (1, 2, 0)) + 1) / 2.0 * 65535.0
+        return image_numpy.astype(np.uint16)
+
+
 
 
 def diagnose_network(net, name='network'):
@@ -30,9 +36,17 @@ def diagnose_network(net, name='network'):
     print(mean)
 
 
-def save_image(image_numpy, image_path):
+def save_image_color(image_numpy, image_path):
+    image_numpy = image_numpy.astype(np.uint8)
+
     image_pil = Image.fromarray(image_numpy)
+    # print (image_numpy.dtype)
+
     image_pil.save(image_path)
+def save_image_depth(image_numpy, image_path):
+    # print (image_numpy.dtype)
+
+    cv2.imwrite(image_path,image_numpy)
 
 
 def print_numpy(x, val=True, shp=False):
@@ -70,13 +84,21 @@ def save_images(results_dir, visuals, image_path, size=None):
     links = []
 
     for label, im in visuals.items():
+
         image_name = '%s_%s.png' % (name, label)
         save_path = os.path.join(image_dir, image_name)
         h, w, _ = im.shape
         if size!=None:
-            im = imresize(im, (size[1], size[0]), interp='bicubic')
+            #im = imresize(im, (size[1], size[0]), interp='bilinear')
+            im = cv2.resize(im, size)
+        print (im.dtype)
 
-        save_image(im, save_path)
+
+        if label == 'fake_C':
+            save_image_depth(im, save_path)
+        else:
+            save_image_color(im, save_path)
+
 
         ims.append(image_name)
         txts.append(label)

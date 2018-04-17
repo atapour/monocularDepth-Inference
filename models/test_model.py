@@ -17,7 +17,7 @@ class TestModel(BaseModel):
         self.input_A = self.Tensor(1, 3, 1024, 256)
 
         self.netG_AtoB = networks.define_G(3, 3, 64, 'resnet_9blocks', 'instance', False, args.init_type, self.gpu_ids)
-        self.netG_BtoC = networks.define_G(3, 4, 64, 'unet_256', 'batch', False, args.init_type, self.gpu_ids)
+        self.netG_BtoC = networks.define_G(3, 1, 64, 'unet_256', 'batch', False, args.init_type, self.gpu_ids)
 
         checkpoint_AtoB_filename = 'netG_A2B.pth'
         checkpoint_BtoC_filename = 'netG_B2C.pth'
