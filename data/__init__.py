@@ -4,16 +4,15 @@ from data.base_data_loader import BaseDataLoader
 
 def CreateDataLoader(args):
     data_loader = CustomDatasetDataLoader()
-    print(data_loader.name())
     data_loader.initialize(args)
     return data_loader
 
 
 def CreateDataset(args):
     dataset = None
-    from data.single_dataset import SingleDataset
-    dataset = SingleDataset()
-    print("The dataset was created")
+    from data.single_dataset import TestDataset
+    dataset = TestDataset()
+    print("The dataset has been created")
     dataset.initialize(args)
     return dataset
 

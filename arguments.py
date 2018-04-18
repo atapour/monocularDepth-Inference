@@ -13,10 +13,6 @@ class Arguments():
         self.parser.add_argument('--dataroot', default="/home/amir/Projects/styleDepth-Inference/eigen", help='path to the directory containing the images')
         self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='the directory that contains the checkpoints')
-        #self.parser.add_argument('--display_winsize', type=int, default=256, help='display window size')
-        #self.parser.add_argument('--display_id', type=int, default=1, help='window id of the web display')
-        #elf.parser.add_argument('--display_server', type=str, default="http://localhost", help='visdom server of the web display')
-        # self.parser.add_argument('--display_port', type=int, default=8097, help='visdom port of the web display')
         self.parser.add_argument('--max_dataset_size', type=int, default=float("inf"), help='Maximum number of samples allowed per dataset. If the dataset directory contains more than max_dataset_size, only a subset is loaded.')
         self.parser.add_argument('--init_type', type=str, default='normal', help='network initialization [normal|xavier|kaiming|orthogonal]')        
         self.parser.add_argument('--ntest', type=int, default=float("inf"), help='# of test examples.')
@@ -45,6 +41,6 @@ class Arguments():
         print('------------ Arguments -------------')
         for k, v in sorted(args.items()):
             print('%s: %s' % (str(k), str(v)))
-        print('-------------- End ----------------')
+        print('------------------------------------')
 
         return self.args

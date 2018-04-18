@@ -4,7 +4,7 @@ from data.image_folder import make_dataset
 from PIL import Image
 
 
-class SingleDataset(BaseDataset):
+class TestDataset(BaseDataset):
     def initialize(self, opt):
         self.opt = opt
         self.root = opt.dataroot
@@ -21,8 +21,6 @@ class SingleDataset(BaseDataset):
         A_img = Image.open(A_path).convert('RGB')
         A_size = A_img.size
 
-        #print(A_size)
-
         A = self.transform(A_img)
         input_nc = 3
 
@@ -32,4 +30,4 @@ class SingleDataset(BaseDataset):
         return len(self.A_paths)
 
     def name(self):
-        return 'SingleImageDataset'
+        return 'TestDataset'

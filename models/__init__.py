@@ -3,5 +3,5 @@ def create_model(args):
     from .test_model import TestModel
     model = TestModel()
     model.initialize(args)
-    print("the inference model was created")
+    print("The model has been created")
     return model

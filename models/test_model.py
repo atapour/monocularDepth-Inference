@@ -28,15 +28,11 @@ class TestModel(BaseModel):
         self.netG_AtoB.load_state_dict(torch.load(checkpoint_path_AtoB))
         self.netG_BtoC.load_state_dict(torch.load(checkpoint_path_BtoC))
 
-        print('---------- Networks initialized -------------')
-        networks.print_network(self.netG_AtoB)
-        networks.print_network(self.netG_BtoC)
-        print('-----------------------------------------------')
+        print('The networks have been initialized')
 
     def set_input(self, input):
         self.image_sizes = input['A_sizes']
 
-        # we need to use single_dataset mode
         input_A = input['A']
         self.input_A.resize_(input_A.size()).copy_(input_A)
         self.image_paths = input['A_paths']
@@ -49,8 +45,6 @@ class TestModel(BaseModel):
         self.fake_B = self.netG_AtoB(self.real_A)
         self.fake_C = self.netG_BtoC(self.fake_B)
 
-
-    # get image paths
     def get_image_paths(self):
         return self.image_paths
 
