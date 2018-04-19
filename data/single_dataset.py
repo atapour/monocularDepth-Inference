@@ -7,8 +7,8 @@ from PIL import Image
 class TestDataset(BaseDataset):
     def initialize(self, opt):
         self.opt = opt
-        self.root = opt.dataroot
-        self.dir_A = os.path.join(opt.dataroot)
+        self.root = opt.data_directory
+        self.dir_A = os.path.join(opt.data_directory)
 
         self.A_paths = make_dataset(self.dir_A)
 

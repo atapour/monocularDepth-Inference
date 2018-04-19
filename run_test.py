@@ -22,4 +22,3 @@ if __name__ == '__main__':
         img_size = model.get_image_sizes()
         print('%04d: processing image... %s' % (i, img_path))
         save_images(args.results_dir, visuals, img_path, size=img_size)
-
