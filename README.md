@@ -3,7 +3,7 @@
 Requires [PyTorch](http://pytorch.org), [OpenCV](http://www.opencv.org), Python 2 or 3, NVIDIA GPU + CUDA CuDNN.
 
 <img src='imgs/pipeLine.pdf' align="right">
-![alt text](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.pdf)
+![](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.png)
 
 ## Method:
 

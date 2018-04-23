@@ -8,4 +8,5 @@ eigen
 results
 results/*
 *.png
+!imgs/*.png
 
