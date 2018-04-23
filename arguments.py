@@ -10,7 +10,7 @@ class Arguments():
         self.initialized = False
 
     def initialize(self):
-        self.parser.add_argument('--data_directory', default="/home/amir/Projects/styleDepth-Inference/Kitti-depth-val-inputs", help='path to the directory containing the images')
+        self.parser.add_argument('--data_directory', default="./Examples", help='path to the directory containing the images')
         self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='the directory that contains the checkpoints')
         self.parser.add_argument('--max_dataset_size', type=int, default=float("inf"), help='Maximum number of samples allowed per dataset. If the dataset directory contains more than max_dataset_size, only a subset is loaded.')

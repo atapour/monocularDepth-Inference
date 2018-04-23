@@ -1,9 +1,13 @@
 # Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer
 
-Requires [PyTorch](http://pytorch.org), [OpenCV](http://www.opencv.org), Python 2 or 3, NVIDIA GPU + CUDA CuDNN.
+Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch](http://pytorch.org), and [OpenCV](http://www.opencv.org), 
 
 ![General Pipeline](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.png)
-General Pipeline of the approach
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;General pipeline of the approach
 ## Method:
 
 _"Monocular depth estimation using learning-based approaches has become relevant and promising in recent years. However, most monocular depth estimators either need to rely on large quantities of ground truth depth data, which is extremely expensive and difficult to obtain or predict disparity as an intermediary step using a secondary supervisory signal, leading to blurring and other artefacts. Training a depth estimation model using pixel-perfect synthetic environment data can resolve most of these issues, but introduces the problem of domain bias. This is the inability
@@ -25,20 +29,24 @@ Produces a depth map output image based on a a monocular color image input.
 
 
 ![](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/sample.png)
-Example of the results of the approach
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of the results of the approach
 
 ## Instructions to run the inference code:
 
 ```
 $ git clone https://github.com/atapour/styleDepth-Inference.git
 $ cd styleDepth-Inference
-$ python run_test.py
+$ python run_test.py data_directory="./Examples" checkpoints_dir="./checkpoints" results_dir=./results
 ```
 
-The output results are written in the 'results' directory:
-* the file with the suffix "-PROCESSED" is the despeckled depth image.
-* the file with the suffix "-FILLED" is the filled depth image.
-* The file "data.txt" contains information about run-time and number of cases.
+The output results are written in the results directory taken as an argument ('./results' by default):
+* the file with the suffix "-original" is the original input image.
+* the file with the suffix "-restyled" is the style transferred image.
+* the file with the suffix "-depth" is the output depth image.
 
 ---
 
@@ -46,7 +54,11 @@ The output results are written in the 'results' directory:
 ## Example:
 [![Video Example](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/thumbnail.jpg)](https://vimeo.com/260393753 "Video Example - Click to Play")
 
-Video Example - click image above to play.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Video Example - click image above to play.
 
 ---
 

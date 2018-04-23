@@ -1,12 +1,12 @@
-checkpoints/*
+!checkpoints
+!results
+!Examples
 *.zip
 testA/*
 eigen/*
 Kitti-depth-val-inputs
 Kitti-depth-val-inputs/*
 eigen
-results
-results/*
 *.png
 !imgs/*.png
 
