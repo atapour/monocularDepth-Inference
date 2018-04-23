@@ -1,8 +1,8 @@
-# DepthComp: Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer
+# Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer
 
-Requires [OpenCV](http://www.opencv.org), Python 2 or 3, NVIDIA GPU + CUDA CuDNN.
+Requires [PyTorch](http://pytorch.org), [OpenCV](http://www.opencv.org), Python 2 or 3, NVIDIA GPU + CUDA CuDNN.
 
-<img src='imgs/pipeLine.pdf' align="center">
+<img src='imgs/pipeLine.pdf' align="right">
 
 ## Method:
 
@@ -21,23 +21,23 @@ Produces a depth map output image based on a a monocular color image input.
 * The styled transferred image is used as the input to a model trained on synthetic images and can produce pixel-perfect outputs.
 * The code provides an inference pipeline and can be run using the test harness: run_test.py
 * Example images are provided in the Examples sub-directory.
-* A generic interface C++ object is provided within the depthComp.{cpp|.hpp} files.
+* The training was in part performed based on code from [https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
 
 ```
 
-DepthComp (c) Amir Atapour-Abarghouei, 2017
+<img src='imgs/sample.pdf' align="right">
+
+DepthComp (c) Amir Atapour-Abarghouei, 2018
 GPL - http://www.gnu.org/licenses/gpl.html
 
-Compilation and Run Instructions for the Example Code:
+## Instructions to run the Inference Code:
 
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-$ ./depthComp ./../Examples/city1-depth.png ./../Examples/city1-seg.png)
+$ git clone https://github.com/atapour/styleDepth-Inference.git
+$ cd styleDepth-Inference
+$ python run_test.py
 ```
 
-The output results are written in the 'Examples' directory:
+The output results are written in the 'results' directory:
 * the file with the suffix "-PROCESSED" is the despeckled depth image.
 * the file with the suffix "-FILLED" is the filled depth image.
 * The file "data.txt" contains information about run-time and number of cases.
@@ -45,7 +45,7 @@ The output results are written in the 'Examples' directory:
 ---
 
 ## Example:
-[![Video Example](https://i.imgur.com/ZlOPibl.jpg)](https://vimeo.com/224513553 "Video Example - Click to Play")
+[![Video Example](https://i.imgur.com/ZlOPibl.jpg)](https://vimeo.com/260393753 "Video Example - Click to Play")
 
 Video Example - click image above to play.
 
@@ -53,20 +53,23 @@ Video Example - click image above to play.
 
 ## Reference:
 
-[DepthComp: Real-time Depth Image Completion Based on  Semantic Scene Segmentation](http://breckon.eu/toby/publications/papers/abarghouei17depthcomp.pdf)
-(A. Atapour-Abarghouei, T.P. Breckon), In Proc. British Machine Vision Conference, 2017. [[pdf](http://breckon.eu/toby/publications/papers/abarghouei17depthcomp.pdf)] [[demo](https://vimeo.com/224513553)]
+[DepthComp: Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)
+(A. Atapour-Abarghouei, T.P. Breckon), In Proc. Conf. Computer Vision and Pattern Recognition, 2018. [[pdf](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)] [[demo](https://vimeo.com/260393753)]
 
 ```
-@InProceedings{abarghouei17depthcomp,
-  author = 	 {Atapour-Abarghouei, A. and Breckon, T.P.},
-  title = 	 {DepthComp: Real-time Depth Image Completion Based on Prior Semantic Scene Segmentation},
-  booktitle = 	 {Proc. British Machine Vision Conference},
-  pages = 	 {208.1-208.13},
-  year = 	 {2017},
-  month = 	 {September},
-  publisher =    {BMVA},
-  keywords =     {depth filling, RGB-D, surface relief, hole filling, surface completion, 3D texture, depth completion, depth map, disparity hole filling},
-  url = 	 {http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei17depthcomp.pdf}
+@InProceedings{abarghouei18monocular,
+  author = 		{Atapour-Abarghouei, A. and Breckon, T.P.},
+  title = 		{Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation},
+  booktitle = 	{Proc. Computer Vision and Pattern Recognition},
+  pages =		{1-8},
+  year = 		{2018},
+  month = 		{June},
+  publisher = 	{IEEE}, 
+  keywords = 	{monocular depth, generative adversarial network, GAN, depth map, disparity, depth from single image},
+  url = 		{http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei18monocular.pdf},
+  OPTdoi = 		{},
+  comment = 	{<a class="demolink" href="https://vimeo.com/260393753">demo</a>},
 }
+
 ```
 ---
