@@ -3,6 +3,7 @@
 Requires [PyTorch](http://pytorch.org), [OpenCV](http://www.opencv.org), Python 2 or 3, NVIDIA GPU + CUDA CuDNN.
 
 <img src='imgs/pipeLine.pdf' align="right">
+![alt text](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.pdf)
 
 ## Method:
 
@@ -23,15 +24,14 @@ Produces a depth map output image based on a a monocular color image input.
 * Example images are provided in the Examples sub-directory.
 * The training was in part performed based on code from [https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
 
-```
-
 <img src='imgs/sample.pdf' align="right">
 
 DepthComp (c) Amir Atapour-Abarghouei, 2018
 GPL - http://www.gnu.org/licenses/gpl.html
 
-## Instructions to run the Inference Code:
+## Instructions to run the inference code:
 
+```
 $ git clone https://github.com/atapour/styleDepth-Inference.git
 $ cd styleDepth-Inference
 $ python run_test.py
