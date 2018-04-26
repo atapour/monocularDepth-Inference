@@ -2,11 +2,14 @@
 !results
 !Examples
 *.zip
-testA/*
-eigen/*
-Kitti-depth-val-inputs
-Kitti-depth-val-inputs/*
-eigen
+unused
+__pycache__
+*.pyc
+models/__pycache__
+models/*.pyc
+data/__pycache__
+data/*.pyc
 *.png
+!Examples/*.png
 !imgs/*.png
 

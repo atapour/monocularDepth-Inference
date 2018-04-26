@@ -56,4 +56,4 @@ class TestModel(BaseModel):
         fake_B = util.tensor2im(self.fake_B.data)
         fake_C = util.tensor2im(self.fake_C.data)
 
-        return OrderedDict([('real_A', real_A), ('fake_B', fake_B), ('fake_C', fake_C)])
+        return OrderedDict([('original', real_A), ('restyled', fake_B), ('depth', fake_C)])

@@ -1,4 +1,4 @@
-# Ignore everything in this directory
-*
-# Except this file
+# keep the png files in this directory
+!*.png
+# and this file
 !.gitignore

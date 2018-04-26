@@ -51,7 +51,7 @@ def save_images(results_dir, visuals, image_path, size=None):
         if size!=None:
             im = cv2.resize(im, size)
 
-        if label == 'fake_C':
+        if label == 'depth':
             save_image_depth(im, save_path)
         else:
             save_image_color(im, save_path)
