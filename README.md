@@ -40,10 +40,13 @@ Produces a depth map output image based on a a monocular color image input.
 ```
 $ git clone https://github.com/atapour/styleDepth-Inference.git
 $ cd styleDepth-Inference
+$ chmod +x ./download_pretrained_models.sh
+$ ./download_pretrained_models.sh
 $ python run_test.py data_directory="./Examples" checkpoints_dir="./checkpoints" results_dir=./results
 ```
 
 The output results are written in the results directory taken as an argument ('./results' by default):
+* the script entitled "download_pretrained_models.sh" will download the required pre-trained models and checks the downloaded file integrity using MD5 checksum.
 * the file with the suffix "_original" is the original input image.
 * the file with the suffix "_restyled" is the style transferred image.
 * the file with the suffix "_depth" is the output depth image.

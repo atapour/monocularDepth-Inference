@@ -1,4 +1,5 @@
 !checkpoints
+checkpoints/*.pth
 !results
 !Examples
 *.zip
