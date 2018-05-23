@@ -38,6 +38,7 @@ class Arguments():
 
         args = vars(self.args)
 
+
         print('------------ Arguments -------------')
         for k, v in sorted(args.items()):
             print('%s: %s' % (str(k), str(v)))

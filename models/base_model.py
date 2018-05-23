@@ -18,7 +18,6 @@ class BaseModel():
     def forward(self):
         pass
 
-    # used in test time, no backprop
     def test(self):
         pass
 

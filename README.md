@@ -20,9 +20,9 @@ a single real-world color image based on training over a large corpus of synthet
 
 ## Reference implementation:
 Produces a depth map output image based on a a monocular color image input.
-* The input RGB map will first be transformed into the style of the images captured from a highly realistic synthetic virtual environment, the depth prediction network is trained on.
-* The provided color image is used as the input to [CycleGAN](https://junyanz.github.io/CycleGAN/), which transform the style of the image. Image style transfer is used a method of domain adaptation.
-* The styled transferred image is used as the input to a model trained on synthetic images and can produce pixel-perfect outputs.
+* The input RGB map will first be transformed into the style of the images captured from a highly realistic synthetic virtual environment, on which the depth prediction network is trained.
+* The provided color image is used as the input to [CycleGAN](https://junyanz.github.io/CycleGAN/), which transforms the style of the image. Image style transfer is used a method of domain adaptation.
+* The styled transferred image is used as the input to a model trained on synthetic images and can produce pixel-perfect depth outputs.
 * The code provides an inference pipeline and can be run using the test harness: run_test.py
 * Example images are provided in the Examples sub-directory.
 * The training was in part performed based on code from [https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).

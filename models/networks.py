@@ -1,9 +1,11 @@
+# based on https://junyanz.github.io/CycleGAN/
+
 import torch
 import torch.nn as nn
 from torch.nn import init
 import functools
 from torch.autograd import Variable
-# from torch.optim import lr_scheduler
+
 
 def get_norm_layer(norm_type='instance'):
     if norm_type == 'batch':
