@@ -28,8 +28,6 @@ class TestModel(BaseModel):
         self.netG_AtoB.load_state_dict(torch.load(checkpoint_path_AtoB))
         self.netG_BtoC.load_state_dict(torch.load(checkpoint_path_BtoC))
 
-        print('The networks have been successfully initialized')
-
     def set_input(self, input):
         self.image_sizes = input['A_sizes']
 

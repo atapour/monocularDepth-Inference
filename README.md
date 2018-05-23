@@ -42,7 +42,7 @@ $ git clone https://github.com/atapour/styleDepth-Inference.git
 $ cd styleDepth-Inference
 $ chmod +x ./download_pretrained_models.sh
 $ ./download_pretrained_models.sh
-$ python run_test.py data_directory="./Examples" checkpoints_dir="./checkpoints" results_dir=./results
+$ python run_test.py --data_directory="./Examples" --checkpoints_dir="./checkpoints" --results_dir=./results
 ```
 
 The output results are written in the results directory taken as an argument ('./results' by default):
