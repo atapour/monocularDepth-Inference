@@ -1,6 +1,6 @@
 # Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer
 
-Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch](http://pytorch.org), and [OpenCV](http://www.opencv.org), 
+Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch 0.3.1](http://pytorch.org), and [OpenCV](http://www.opencv.org), 
 
 ![General Pipeline](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
