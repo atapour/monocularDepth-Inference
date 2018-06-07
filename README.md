@@ -14,18 +14,18 @@ _"Monocular depth estimation using learning-based approaches has become relevant
 to apply a model trained on synthetic data to real-world scenarios. With recent advances in image style transfer and its connections with domain adaptation (Maximum Mean Discrepancy), our approach takes advantage of style transfer and adversarial training to predict pixel perfect depth from
 a single real-world color image based on training over a large corpus of synthetic environment data. Experimental results indicate the efficacy of our approach compared to contemporary state-of-the-art."_
 
-[[Atapour-Abarghouei, Breckon, Proc. CVPR, 2018](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)]
+[[Atapour-Abarghouei and Breckon, Proc. CVPR, 2018](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)]
 
 ---
 
 ## Reference implementation:
-Produces a depth map output image based on a a monocular color image input.
-* The input RGB map will first be transformed into the style of the images captured from a highly realistic synthetic virtual environment, on which the depth prediction network is trained.
-* The provided color image is used as the input to [CycleGAN](https://junyanz.github.io/CycleGAN/), which transforms the style of the image. Image style transfer is used a method of domain adaptation.
-* The styled transferred image is used as the input to a model trained on synthetic images and can produce pixel-perfect depth outputs.
+Produces a depth map output image based on a monocular color image input.
+* The input RGB image will first be transformed into the style of the images captured from a highly realistic synthetic virtual environment, on which the depth prediction network is trained.
+* The provided color image is used as the input to [CycleGAN](https://junyanz.github.io/CycleGAN/), which transforms the style of the image. Image style transfer is used as a method of domain adaptation.
+* The style transferred image is used as the input to a model trained on synthetic images and can produce pixel-perfect depth outputs.
 * The code provides an inference pipeline and can be run using the test harness: run_test.py
-* Example images are provided in the Examples sub-directory.
-* The training was in part performed based on code from [https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
+* Example images are provided in the 'Examples' directory.
+* The training was in part performed based on the code from [https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix), and we would like to thank the authors and contributors.
 
 
 ![](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/sample.png)
@@ -46,7 +46,7 @@ $ ./download_pretrained_models.sh
 $ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints --results_dir=./results
 ```
 ---
-## Instructions to run the inference code using PyTorch 0.3.1:
+## Instructions to run the inference code using PyTorch 0.4.0:
 
 ```
 $ git clone https://github.com/atapour/styleDepth-Inference.git
@@ -58,9 +58,9 @@ $ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints
 ```
 ---
 
-The output results are written in the results directory taken as an argument ('./results' by default):
+The output results are written in a directory taken as an argument to the test harness ('./results' by default):
 * the script entitled "download_pretrained_models.sh" will download the required pre-trained models and checks the downloaded file integrity using MD5 checksum.
-* the checkpoints that are available for direct download were created using pyTorch 0.3.1 and will not work if you are using pyTorch 0.4.0. The provided python script will remedy the situation.
+* the checkpoints that are available for direct download were created using pyTorch 0.3.1 and will not work if you are using pyTorch 0.4.0. The provided python script named ' remove_running_stats.py' will remedy the situation.
 * the file with the suffix "_original" is the original input image.
 * the file with the suffix "_restyled" is the style transferred image.
 * the file with the suffix "_depth" is the output depth image.
