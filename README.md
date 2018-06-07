@@ -1,6 +1,6 @@
 # Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer
 
-Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch 0.3.1](http://pytorch.org), and [OpenCV](http://www.opencv.org), 
+Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch 0.3.1](https://pytorch.org/previous-versions/) or [PyTorch 0.4.0](http://pytorch.org), and [OpenCV](http://www.opencv.org), 
 
 ![General Pipeline](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,18 +35,32 @@ Produces a depth map output image based on a a monocular color image input.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example of the results of the approach
 
-## Instructions to run the inference code:
+---
+## Instructions to run the inference code using PyTorch 0.3.1:
 
 ```
 $ git clone https://github.com/atapour/styleDepth-Inference.git
 $ cd styleDepth-Inference
 $ chmod +x ./download_pretrained_models.sh
 $ ./download_pretrained_models.sh
-$ python run_test.py --data_directory="./Examples" --checkpoints_dir="./checkpoints" --results_dir=./results
+$ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints --results_dir=./results
 ```
+---
+## Instructions to run the inference code using PyTorch 0.3.1:
+
+```
+$ git clone https://github.com/atapour/styleDepth-Inference.git
+$ cd styleDepth-Inference
+$ chmod +x ./download_pretrained_models.sh
+$ ./download_pretrained_models.sh
+$ python remove_running_stats.py
+$ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints --results_dir=./results
+```
+---
 
 The output results are written in the results directory taken as an argument ('./results' by default):
 * the script entitled "download_pretrained_models.sh" will download the required pre-trained models and checks the downloaded file integrity using MD5 checksum.
+* the checkpoints that are available for direct download were created using pyTorch 0.3.1 and will not work if you are using pyTorch 0.4.0. The provided python script will remedy the situation.
 * the file with the suffix "_original" is the original input image.
 * the file with the suffix "_restyled" is the style transferred image.
 * the file with the suffix "_depth" is the output depth image.
@@ -74,11 +88,11 @@ The output results are written in the results directory taken as an argument ('.
 @InProceedings{abarghouei18monocular,
   author = 		{Atapour-Abarghouei, A. and Breckon, T.P.},
   title = 		{Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation},
-  booktitle = 		{Proc. Computer Vision and Pattern Recognition},
+  booktitle = 	{Proc. Computer Vision and Pattern Recognition},
   pages =		{1-8},
   year = 		{2018},
   month = 		{June},
-  publisher = 		{IEEE}, 
+  publisher = 	{IEEE}, 
   keywords = 		{monocular depth, generative adversarial network, GAN, depth map, disparity, depth from single image},
   url = 		{http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei18monocular.pdf},
   OPTdoi = 		{},
