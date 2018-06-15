@@ -39,7 +39,7 @@ Produces a depth map output image based on a monocular color image input.
 ## Instructions to run the inference code using PyTorch 0.3.1:
 
 ```
-$ git clone https://github.com/atapour/styleDepth-Inference.git
+$ git clone https://github.com/atapour/monocularDepth-Inference.git
 $ cd styleDepth-Inference
 $ chmod +x ./download_pretrained_models.sh
 $ ./download_pretrained_models.sh
@@ -49,7 +49,7 @@ $ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints
 ## Instructions to run the inference code using PyTorch 0.4.0:
 
 ```
-$ git clone https://github.com/atapour/styleDepth-Inference.git
+$ git clone https://github.com/atapour/monocularDepth-Inference.git
 $ cd styleDepth-Inference
 $ chmod +x ./download_pretrained_models.sh
 $ ./download_pretrained_models.sh
