@@ -1,6 +1,6 @@
 # Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer
 
-Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch 0.3.1](https://pytorch.org/previous-versions/) or [PyTorch 0.4.0](http://pytorch.org), and [OpenCV](http://www.opencv.org), 
+Requires an NVIDIA GPU, Python 2 or 3, [CUDA CuDNN](https://developer.nvidia.com/cudnn), [PyTorch 0.3.1](https://pytorch.org/previous-versions/) or [PyTorch 0.4.0](http://pytorch.org), and [OpenCV](http://www.opencv.org),
 
 ![General Pipeline](https://github.com/atapour/styleDepth-Inference/blob/master/imgs/pipeLine.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -92,11 +92,8 @@ The output results are written in a directory taken as an argument to the test h
   pages =		{1-8},
   year = 		{2018},
   month = 		{June},
-  publisher = 	{IEEE}, 
+  publisher = 	{IEEE},
   keywords = 		{monocular depth, generative adversarial network, GAN, depth map, disparity, depth from single image},
-  url = 		{http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei18monocular.pdf},
-  OPTdoi = 		{},
-  comment = 		{<a class="demolink" href="https://vimeo.com/260393753">demo</a>},
 }
 
 ```
