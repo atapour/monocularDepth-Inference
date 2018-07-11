@@ -40,7 +40,7 @@ Produces a depth map output image based on a monocular color image input.
 
 ```
 $ git clone https://github.com/atapour/monocularDepth-Inference.git
-$ cd styleDepth-Inference
+$ cd monocularDepth-Inference
 $ chmod +x ./download_pretrained_models.sh
 $ ./download_pretrained_models.sh
 $ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints --results_dir=./results
@@ -50,7 +50,7 @@ $ python run_test.py --data_directory=./Examples --checkpoints_dir=./checkpoints
 
 ```
 $ git clone https://github.com/atapour/monocularDepth-Inference.git
-$ cd styleDepth-Inference
+$ cd monocularDepth-Inference
 $ chmod +x ./download_pretrained_models.sh
 $ ./download_pretrained_models.sh
 $ python remove_running_stats.py
