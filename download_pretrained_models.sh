@@ -7,7 +7,7 @@ URL_MODELS=https://collections.durham.ac.uk/downloads/r2rf55z770q
 
 echo "downloading the style transfer and depth estimation models..."
 
-wget --quiet --show-progress $URL_MODELS -O $MODELS
+wget --quiet --no-check-certificate --show-progress $URL_MODELS -O $MODELS
 
 echo "checking the MD5 checksum for downloaded models..."
 
